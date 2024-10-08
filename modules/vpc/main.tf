@@ -80,16 +80,7 @@ resource "aws_subnet" "private" {
     Name = "private-subnet-${count.index+1}"
   }
 }
-resource "aws_vpc_peering_connection" "main" {
 
-  vpc_id        = aws_vpc.main.id
-  peer_vpc_id   = data.aws_vpc.default.id
-  auto_accept = true
-
-  tags = {
-    Name = "${var.env}-vpc-with-default-vpc"
-  }
-}
 
 resource "aws_route" "main" {
   route_table_id            = aws_vpc.main.main_route_table_id
