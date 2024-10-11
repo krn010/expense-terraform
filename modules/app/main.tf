@@ -7,10 +7,11 @@ resource "aws_security_group" "main" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = var.bastian_cidrs
+    cidr_blocks      = var.bastion_cidrs
     description      = "SSH"
 
   }
+
   ingress {
     from_port        = var.app_port
     to_port          = var.app_port
@@ -46,6 +47,7 @@ resource "aws_autoscaling_group" "bar" {
   desired_capacity   = var.instance_capactiy
   max_size           = var.instance_capactiy # TBD,  This we will fine tune after auto scaling
   min_size           = var.instance_capactiy
+  vpc_zone_identifier = var.vpc_zone_identifier
 
   launch_template {
     id      = aws_launch_template.main.id

@@ -3,7 +3,8 @@ variable "component" {}
 variable "instance_type" {}
 variable "project_name" {}
 variable "vpc_id" {}
-variable "bastian_cidrs" {}
+variable "bastion_cidrs" {}
 variable "app_port" {}
 variable "sg_cidr_blocks" {}
 variable "instance_capactiy" {}
+variable "vpc_zone_identifier" {}
