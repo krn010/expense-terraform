@@ -69,3 +69,18 @@ module "rds" {
   sg_cidr_blocks       = var.app_subnets_cidr
 }
 
+module "backend" {
+  source = "./modules/app"
+
+  app_port          = var.backend_app_port
+  bastian_cidrs     = var.bastian_cidrs
+  component         = "backend"
+  env               = var.env
+  instance_capactiy = var.backend_instance_capactiy
+  instance_type     = var.backend_instance_type
+  project_name      = var.project_name
+  sg_cidr_blocks    = var.web_subnets_cidr
+  vpc_id            = module.vpc.vpc_id
+}
+
+
