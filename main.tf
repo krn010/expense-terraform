@@ -53,16 +53,16 @@ module "vpc" {
 
 module "rds" {
   source = "./modules/rds"
-  allocated_storage    = var.allocated_storage
-  db_name              = var.db_name
-  engine               = var.engine
-  engine_version       = var.engine_version
-  instance_class       = var.instance_class
-  family               = var.family
+  allocated_storage    = var.rds_allocated_storage
+  db_name              = var.rds_db_name
+  engine               = var.rds_engine
+  engine_version       = var.rds_engine_version
+  instance_class       = var.rds_instance_class
+  family               = var.rds_family
 
-  env                  = var.env
-  project_name         = var.project_name
-  kms_key_id           = var.kms_key_id
+  env                  = var.rds_env
+  project_name         = var.rds_project_name
+  kms_key_id           = var.rds_kms_key_id
 
   subnet_ids           = module.vpc.app_subnets_ids
   vpc_id               = module.vpc.vpc_id

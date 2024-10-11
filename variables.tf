@@ -1,7 +1,5 @@
 variable "env" {}
-variable "vpc" {}
 variable "project_name" {}
-variable "rds" {}
 variable "kms_key_id" {}
 variable "vpc_cidr" {}
 variable "public_subnets_cidr" {}
@@ -9,9 +7,9 @@ variable "az" {}
 variable "web_subnets_cidr" {}
 variable "app_subnets_cidr" {}
 variable "db_subnets_cidr" {}
-variable "allocated_storage" {}
-variable "db_name" {}
-variable "engine" {}
-variable "engine_version" {}
-variable "instance_class" {}
-variable "family" {}
+variable "rds_allocated_storage" {}
+variable "rds_db_name" {}
+variable "rds_engine" {}
+variable "rds_engine_version" {}
+variable "rds_instance_class" {}
+variable "rds_family" {}
