@@ -60,9 +60,9 @@ module "rds" {
   instance_class       = var.rds_instance_class
   family               = var.rds_family
 
-  env                  = var.rds_env
-  project_name         = var.rds_project_name
-  kms_key_id           = var.rds_kms_key_id
+  env                  = var.env
+  project_name         = var.project_name
+  kms_key_id           = var.kms_key_id
 
   subnet_ids           = module.vpc.app_subnets_ids
   vpc_id               = module.vpc.vpc_id
