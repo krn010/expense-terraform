@@ -3,3 +3,15 @@ variable "vpc" {}
 variable "project_name" {}
 variable "rds" {}
 variable "kms_key_id" {}
+variable "vpc_cidr" {}
+variable "public_subnets_cidr" {}
+variable "az" {}
+variable "web_subnets_cidr" {}
+variable "app_subnets_cidr" {}
+variable "db_subnets_cidr" {}
+variable "allocated_storage" {}
+variable "db_name" {}
+variable "engine" {}
+variable "engine_version" {}
+variable "instance_class" {}
+variable "family" {}
