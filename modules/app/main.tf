@@ -15,7 +15,7 @@ resource "aws_security_group" "main" {
   ingress {
     from_port        = var.app_port
     to_port          = var.app_port
-    protocol         = "-1"
+    protocol         = "tcp"
     cidr_blocks      = var.sg_cidr_blocks
     description      = "App_Port"
   }
@@ -41,12 +41,12 @@ resource "aws_launch_template" "main" {
   vpc_security_group_ids = [aws_security_group.main.id]
 }
 
-resource "aws_autoscaling_group" "bar" {
-  name = "${local.name}-asg"
-  availability_zones = ["us-east-1a"]
-  desired_capacity   = var.instance_capactiy
-  max_size           = var.instance_capactiy # TBD,  This we will fine tune after auto scaling
-  min_size           = var.instance_capactiy
+resource "aws_autoscaling_group" "main" {
+  name                = "${local.name}-asg"
+  availability_zones  = ["us-east-1a"]
+  desired_capacity    = var.instance_capactiy
+  max_size            = var.instance_capactiy # TBD,  This we will fine tune after auto scaling
+  min_size            = var.instance_capactiy
   vpc_zone_identifier = var.vpc_zone_identifier
 
   launch_template {
