@@ -47,6 +47,7 @@ resource "aws_autoscaling_group" "main" {
   max_size            = var.instance_capactiy # TBD,  This we will fine tune after auto scaling
   min_size            = var.instance_capactiy
   vpc_zone_identifier = var.vpc_zone_identifier
+  target_group_arns = aws_lb_target_group.main.arn
 
   launch_template {
     id      = aws_launch_template.main.id
@@ -59,3 +60,9 @@ resource "aws_autoscaling_group" "main" {
   }
 }
 
+resource "aws_lb_target_group" "main" {
+  name     = "${local.name}-tg"
+  port     = var.app_port
+  protocol = "HTTP"
+  vpc_id   = var.vpc_id
+}

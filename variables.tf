@@ -25,3 +25,5 @@ variable "backend_instance_type" {}
 variable "frontend_app_port" {}
 variable "frontend_instance_capactiy" {}
 variable "frontend_instance_type" {}
+
+variable "acm_arn" {}
