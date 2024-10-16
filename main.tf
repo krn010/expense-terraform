@@ -131,5 +131,5 @@ module "private-alb" {
   target_group_arn = module.backend.target_group_arn
 }
 
- {}
+
 

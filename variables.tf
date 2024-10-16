@@ -27,5 +27,4 @@ variable "frontend_instance_capactiy" {}
 variable "frontend_instance_type" {}
 
 variable "acm_arn" {}
-
-variable "zone_id"
+variable "zone_id" {}
