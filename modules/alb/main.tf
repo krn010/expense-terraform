@@ -59,10 +59,12 @@ resource "aws_lb_listener" "https" {
   }
 }
 
-resource "aws_lb_listener_rule" "http" {
-  listener_arn = aws_lb.main.arn
+resource "aws_lb_listener" "http" {
+  load_balancer_arn = aws_lb.main.arn
+  port              = "80"
+  protocol          = "HTTP"
 
-  action {
+  default_action {
     type = "redirect"
 
     redirect {
